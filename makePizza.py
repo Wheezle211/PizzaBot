@@ -1,6 +1,6 @@
-import random, datetime, PIL, os, io
+import random, datetime, os, io
 from random import shuffle
-from time import clock
+import time
 from PIL import Image, ImageEnhance, ImageOps
 
 extra = ["This pizza is then burnt to a crisp.",
@@ -20,7 +20,8 @@ extra = ["This pizza is then burnt to a crisp.",
 nothing = ['welcome to the void', "There's nothing for you.", 'Check out another pizza.']
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
 pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.'}
-
+adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ']
+adjLength = len(adjectives)
 def formatString(ingredients, halves, isDouble):
     s = ""
     x = 0
@@ -31,7 +32,7 @@ def formatString(ingredients, halves, isDouble):
         if halves[x] != 'whole':
             s1 += halves[x] + ' '
         if random.random() > 0.9:
-            s1 += 'vegan '
+            s1 += adjectives[random.randint(0,adjLength - 1)]
         if x == 0:
             s1 = s1.capitalize()
         if s == '' and s1 == '' and ingredient[0] > 'Z' and x == 0:
@@ -45,7 +46,7 @@ def formatString(ingredients, halves, isDouble):
             s1 += ' ' + random.choice(andArr) + ' '
         else:
             s1 += '.'
-        
+
         s += s1
         x += 1
     return s
@@ -59,7 +60,7 @@ def makePizza(loc, isDiscord):
     for line in lines:
         split = line.split(" ", 1)
         ingredientsDict[split[0]] = split[1]
-    
+
     ingredientsAmmout = random.randint(1, 5)
     ingredientsIds = list(ingredientsDict)
     ingredients = []
@@ -102,23 +103,23 @@ def makePizza(loc, isDiscord):
                 isDouble.append(False)
             else:
                 isDouble.append(True)
-        
+
         pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-        
+
     extraS = ""
     if random.random() > 0.85:
         randomChoice = random.randint(0, len(extra) - 1)
         if randomChoice == 0:
-            print("Burning to a crisp...")
+            print("")
             #pizzaImage = burn(pizzaImage)
         elif randomChoice == 1:
-            print("Deepfrying...")
+            print("")
             pizzaImage = deepfry(pizzaImage)
         elif randomChoice == 2:
-            print("Fitting some sweet RGB lights...")
+            print("")
             pizzaImage = fitRGBLights(pizzaImage, loc)
         elif randomChoice < 5:
-            print("Flipping the pizza...")
+            print("")
             pizzaImage = ImageOps.flip(pizzaImage)
         extraS = "\n" + extra[randomChoice]
 
@@ -132,7 +133,7 @@ def makePizza(loc, isDiscord):
     finalString = formatString(ingredients, halves, isDouble) + extraS
 
     if (hasDifferentPie):
-        finalString = finalString + ' The pie is now a ' + pies[pie]  
+        finalString = finalString + ' The pie is now a ' + pies[pie]
 
     return finalString, buffer
 
@@ -152,7 +153,7 @@ def addIngredient(loc, pizzaImage, ingredient, half, isDouble):
         pizzaImage = Image.alpha_composite(pizzaImage, toPaste)
 
     return pizzaImage
-    
+
 #TODO
 def burn(pizzaImage):
     #r, g, b, a = pizzaImage.split()
