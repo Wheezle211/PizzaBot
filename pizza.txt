@@ -85,3 +85,4 @@ joints joints
 snails snails
 squeezy_sauce squeezy tomato sauce
 toast toast
+switch Nintendo Switches
