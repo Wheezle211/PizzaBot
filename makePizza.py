@@ -19,7 +19,7 @@ extra = ["This pizza is then burnt to a crisp.",
 "@{} has to eat this pizza.".format(chr(random.randint(65, 90)))]
 nothing = ['welcome to the void', "There's nothing for you.", 'Check out another pizza.']
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
-pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.'}
+pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie'}
 adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ', 'salt and vinegar ']
 adjLength = len(adjectives)
 def formatString(ingredients, halves, isDouble):
@@ -133,7 +133,7 @@ def makePizza(loc, isDiscord):
     finalString = formatString(ingredients, halves, isDouble) + extraS
 
     if (hasDifferentPie):
-        finalString = finalString + ' The pie is now a ' + pies[pie]
+        finalString = finalString + ' The pie is now ' + pies[pie]
 
     return finalString, buffer
 
