@@ -111,7 +111,7 @@ def makePizza(loc, isDiscord):
         randomChoice = random.randint(0, len(extra) - 1)
         if randomChoice == 0:
             print("")
-            #pizzaImage = burn(pizzaImage)
+            pizzaImage = burn(pizzaImage)
         elif randomChoice == 1:
             print("")
             pizzaImage = deepfry(pizzaImage)
