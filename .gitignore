@@ -118,4 +118,4 @@ dmypy.json
 .DS_Store
 
 #pull script
-pull.php
+pull.py
