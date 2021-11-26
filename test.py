@@ -1,2 +1,3 @@
+#!/usr/bin/env python3
 import os
-print [name for name in os.listdir(".") if os.path.isdir(name)]
+my_list = os.listdir('.')
