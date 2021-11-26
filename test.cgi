@@ -4,4 +4,4 @@ print('Content-type: text/html\r\n\r')
 thelist = [ name for name in os.listdir('.') if os.path.isdir(os.path.join('.', name)) ]
 #print(thelist)
 
-print ([name for name in os.listdir("ingredients") if os.path.isdir(name)])
+print ([name for name in os.listdir("./ingredients") if os.path.isdir(name)])
