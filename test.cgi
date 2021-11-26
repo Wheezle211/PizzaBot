@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
 import os
 print('Content-type: text/html\r\n\r')
-my_list = os.listdir('.')
-print(my_list)
+thelist = [ name for name in os.listdir('.') if os.path.isdir(os.path.join('.', name)) ]
+print(thelist)
