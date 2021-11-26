@@ -52,14 +52,21 @@ def formatString(ingredients, halves, isDouble):
     return s
 
 def makePizza(loc, isDiscord):
-    with open(os.path.join(loc, 'pizza.txt'), encoding='utf-8-sig') as file:
-        textFile = file.read()
-    lines = textFile.splitlines()
+    #with open(os.path.join(loc, 'pizza.txt'), encoding='utf-8-sig') as file:
+     #   textFile = file.read()
+    #lines = textFile.splitlines()
+    folder = './ingredients'
+    sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
     ingredientsDict = {}
 
-    for line in lines:
-        split = line.split(" ", 1)
-        ingredientsDict[split[0]] = split[1]
+    #for line in lines:
+    #    split = line.split(" ", 1)
+    #    ingredientsDict[split[0]] = split[1]
+
+    for name in sub_folders:
+        with open(os.path.join(folder + name, name + '.txt')) as f:
+            ingredientContent = f.read()
+        ingredientsDict[name] = ingredientContent
 
     ingredientsAmmout = random.randint(1, 5)
     ingredientsIds = list(ingredientsDict)
