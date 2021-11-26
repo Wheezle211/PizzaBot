@@ -4,5 +4,6 @@ print('Content-type: text/html\r\n\r')
 folder = './ingredients'
 
 sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
-
-print(sub_folders)
+for name in sub_folders:
+    completeName = os.path.join('./' + name, name + '.txt')
+    print(completeName)
