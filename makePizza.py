@@ -64,7 +64,7 @@ def makePizza(loc, isDiscord):
     #    ingredientsDict[split[0]] = split[1]
 
     for name in sub_folders:
-        with open(os.path.join(folder + name, name + '.txt')) as f:
+        with open(os.path.join(folder + name + '/', name + '.txt')) as f:
             ingredientContent = f.read()
         ingredientsDict[name] = ingredientContent
 
