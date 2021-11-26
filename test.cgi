@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
-print('Content-type: text/html\r\n\r')
-thelist = [ name for name in os.listdir('.') if os.path.isdir(os.path.join('.', name)) ]
-#print(thelist)
+folder = './ingredients'
 
-print ([name for name in os.listdir("./ingredients") if os.path.isdir(name)])
+sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
+
+print(sub_folders)
