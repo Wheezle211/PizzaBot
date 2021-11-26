@@ -7,3 +7,6 @@ sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join
 for name in sub_folders:
     completeName = os.path.join('./' + name, name + '.txt')
     print(completeName)
+    file1 = open(completeName, 'w')
+    file1.write("")
+    file1.close()
