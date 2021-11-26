@@ -1,2 +1,3 @@
 #!/usr/bin/env python3
-print "hello"
+import os
+my_list = os.listdir('.')
