@@ -15,7 +15,7 @@ print(arguments["horse"].value)
 
 #facebook = facebook.GraphAPI(apiKey)
 
-message = makePizza.makePizza(loc, False)[0]
+message = makePizza.makePizza()
 print(message)
 
 #response = facebook.put_photo(image=open(os.path.join(loc, 'pizza2.png'), 'rb'), message=message)
