@@ -1,7 +1,11 @@
-import random, datetime, os, io
+import random, datetime, os, io, cgi
 from random import shuffle
 import time
 from PIL import Image, ImageEnhance, ImageOps
+
+arguments = cgi.FieldStorage()
+for i in arguments.keys:
+    print(arguments[i] + ":" + arguments[i].value)
 
 extra = ["This pizza is then burnt to a crisp.",
 "This pizza is then deepfried.",
