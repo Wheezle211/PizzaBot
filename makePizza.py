@@ -16,7 +16,8 @@ extra = ["This pizza is then burnt to a crisp.",
 "Best served hot.",
 "Best served over ice.",
 "Best before: {}.".format(datetime.date.fromordinal(random.randint(725000, 740000))),
-"@{} has to eat this pizza.".format(chr(random.randint(65, 90)))]
+"@{} has to eat this pizza.".format(chr(random.randint(65, 90))),
+"What is this, a pizza for ants?"]
 nothing = ['welcome to the void', "There's nothing for you.", 'Check out another pizza.']
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
 pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie.'}
@@ -124,6 +125,10 @@ def makePizza(loc, isDiscord):
         elif randomChoice < 5:
             print("")
             pizzaImage = ImageOps.flip(pizzaImage)
+        elif randomChoice = 14:
+            print("")
+            size = 800, 533
+            pizzaImage.thumbnail(size, Image.ANTIALIAS)
         extraS = "\n" + extra[randomChoice]
 
     buffer = None
