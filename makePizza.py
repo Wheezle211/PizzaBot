@@ -127,7 +127,7 @@ def makePizza(loc, isDiscord):
             pizzaImage = ImageOps.flip(pizzaImage)
         elif randomChoice == 14:
             print("")
-            size = 800, 533
+            size = 100, 67
             pizzaImage.thumbnail(size, Image.ANTIALIAS)
         extraS = "\n" + extra[randomChoice]
 
