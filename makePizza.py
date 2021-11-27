@@ -1,12 +1,10 @@
-import random, datetime, os, io, cgi
+import random, datetime, os, io
 from random import shuffle
 import time
 from PIL import Image, ImageEnhance, ImageOps
 
-arguments = cgi.FieldStorage()
-for i in arguments.keys:
-    print(arguments[i] + ":" + arguments[i].value)
-
+loc = os.path.dirname(os.path.abspath(__file__))
+isDiscord = False
 extra = ["This pizza is then burnt to a crisp.",
 "This pizza is then deepfried.",
 "This pizza has been fitted with RGB lights.",
@@ -60,7 +58,11 @@ def formatString(ingredients, halves, isDouble):
         x += 1
     return s
 
-def makePizza(loc, isDiscord):
+def makePizza():
+    
+    buildPizza()
+
+def buildPizza():
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
