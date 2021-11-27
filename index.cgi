@@ -6,8 +6,7 @@ os.environ["PYTHONIOENCODING"] = "utf-8"
 
 loc = os.path.dirname(os.path.abspath(__file__))
 arguments = cgi.FieldStorage()
-for i in arguments.keys():
-    print(arguments[i].value)
+print(arguments["horse"])
 
 #this is a test API KEY (not required)
 #apiKey = '<YOUR_TEST_API_KEY>'
