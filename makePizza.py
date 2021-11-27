@@ -59,8 +59,8 @@ def formatString(ingredients, halves, isDouble):
     return s
 
 def makePizza():
-    
-    buildPizza()
+
+    return buildPizza()
 
 def buildPizza():
     folder = './ingredients'
