@@ -31,7 +31,7 @@ def formatString(ingredients, halves, isDouble):
     adjectives_folder = [name for name in os.listdir('./adjectives')]
     for name in adjectives_folders:
         with open(os.path.join('./ingredients/' + name + '.txt')) as f:
-            adjectives.append(f.read())
+            adjectives.append(f.read() + ' ')
     adjLength = len(adjectives)
     for ingredient in ingredients:
         s1 = ''
