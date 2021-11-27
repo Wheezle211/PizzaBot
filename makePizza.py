@@ -20,7 +20,8 @@ extra = ["This pizza is then burnt to a crisp.",
 "What is this, a pizza for ants?"]
 nothing = ['welcome to the void', "There's nothing for you.", 'Check out another pizza.']
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
-pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie.'}
+#pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie.'}
+pies = {}
 adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ', 'salt and vinegar ']
 adjLength = len(adjectives)
 def formatString(ingredients, halves, isDouble):
@@ -54,9 +55,10 @@ def formatString(ingredients, halves, isDouble):
 
 def makePizza(loc, isDiscord):
     folder = './ingredients'
+    piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
+    pie_folders = [name for name in os.listdir(piefolder) if os.path.isdir(os.path.join(piefolder, name))]
     ingredientsDict = {}
-
     for name in sub_folders:
         try:
             with open(os.path.join(folder + '/' + name, name + '.txt')) as f:
@@ -67,6 +69,10 @@ def makePizza(loc, isDiscord):
 
     ingredientsAmmout = random.randint(1, 5)
     ingredientsIds = list(ingredientsDict)
+    for name in pie_folders:
+        try:
+            with open(os.path.join(piefolder + '/' + name, name + '.txt')) as f:
+                pies[name] = f.read()
     ingredients = []
     halves = []
     isDouble = []
@@ -75,7 +81,7 @@ def makePizza(loc, isDiscord):
     if random.random() > 0.85:
         pieList = list(pies)
         pie = random.choice(pieList)
-        pizzaImage = Image.open(os.path.join(loc, 'pies', pie + '.png'))
+        pizzaImage = Image.open(os.path.join(piefolder + '/' + pie, pie + '.png'))
         hasDifferentPie = True
     else:
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
