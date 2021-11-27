@@ -73,6 +73,8 @@ def makePizza(loc, isDiscord):
         try:
             with open(os.path.join(piefolder + '/' + name, name + '.txt')) as f:
                 pies[name] = f.read()
+        except:
+            echo ""
     ingredients = []
     halves = []
     isDouble = []
