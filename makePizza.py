@@ -22,11 +22,17 @@ nothing = ['welcome to the void', "There's nothing for you.", 'Check out another
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
 #pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie.'}
 pies = {}
-adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ', 'salt and vinegar ']
-adjLength = len(adjectives)
+#adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ', 'salt and vinegar ']
+#adjLength = len(adjectives)
 def formatString(ingredients, halves, isDouble):
     s = ""
     x = 0
+    adjectives = []
+    adjectives_folder = [name for name in os.listdir('./adjectives')]
+    for name in adjectives_folders:
+        with open(os.path.join('./ingredients/' + name + '.txt')) as f:
+            adjectives.append(f.read())
+    adjLength = len(adjectives)
     for ingredient in ingredients:
         s1 = ''
         if isDouble[x]:
