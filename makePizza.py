@@ -20,10 +20,7 @@ extra = ["This pizza is then burnt to a crisp.",
 "What is this, a pizza for ants?"]
 nothing = ['welcome to the void', "There's nothing for you.", 'Check out another pizza.']
 andArr = ['and', 'finished off with', 'topped with', 'with some', 'with addition of']
-#pies = {'stop' : 'a stop sign.', 'ipad' : 'an iPad Pro.', 'meatpie' : 'an actual pie.'}
 pies = {}
-#adjectives = ['vegan ', 'gluten-free ', 'boneless ', 'highly radioactive ', 'halal ', 'haram ', 'kosher ', 'flamin\' hot ', 'salt and vinegar ']
-#adjLength = len(adjectives)
 def formatString(ingredients, halves, isDouble):
     s = ""
     x = 0
