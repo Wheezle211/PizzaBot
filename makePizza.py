@@ -70,6 +70,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         valid = validateIngredient(ing)
         if valid == 1:
             ingredientsAmmout += 1
+            logging.warning("this should run 3 times")
         else:
             custIngs.remove(ing)
     folder = './ingredients'
