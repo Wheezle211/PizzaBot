@@ -67,7 +67,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     customIngredients = 0
     custIngs = [ing1, ing2, ing3, ing4]
     for ing in custIngs:
-        if validateIngredient(ing) == "yes":
+        if validateIngredient(ing) == 1:
             logging.warning("This should also run 4 times")
             ingredientsAmmout += 1
     folder = './ingredients'
@@ -235,6 +235,7 @@ def fitRGBLights(pizzaImage, loc):
 def validateIngredient(ingredient):
     ingredientsDict = {}
     folder = './ingredients'
+    match = 0
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
     for name in sub_folders:
         try:
@@ -244,11 +245,8 @@ def validateIngredient(ingredient):
             ingredientContent = name
         ingredientsDict[name] = ingredientContent
         if name == ingredient:
-            return "yes"
-        else:
-            continue
-    else:
-        return "no"
+            match = 1
+    return match
 
 
     
