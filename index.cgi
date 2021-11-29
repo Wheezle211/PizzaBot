@@ -5,6 +5,10 @@ import os, makePizza, cgi
 os.environ["PYTHONIOENCODING"] = "utf-8"
 
 loc = os.path.dirname(os.path.abspath(__file__))
+ingredient1 = ""
+ingredient2 = ""
+ingredient3 = ""
+ingredient4 = ""
 arguments = cgi.FieldStorage()
 if "ing1" in arguments:
     ingredient1 = arguments["ing1"].value
@@ -23,7 +27,7 @@ if "ing4" in arguments:
 
 #facebook = facebook.GraphAPI(apiKey)
 
-message = makePizza.makePizza(ingredient1="", ingredient2="", ingredient3="", ingredient4="")[0]
+message = makePizza.makePizza(ingredient1, ingredient2, ingredient3, ingredient4)[0]
 print(message)
 
 #response = facebook.put_photo(image=open(os.path.join(loc, 'pizza2.png'), 'rb'), message=message)
