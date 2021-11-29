@@ -6,7 +6,11 @@ os.environ["PYTHONIOENCODING"] = "utf-8"
 
 loc = os.path.dirname(os.path.abspath(__file__))
 arguments = cgi.FieldStorage()
-print(arguments["horse"].value)
+ingredient1 = arguments["ing1"].value
+ingredient2 = arguments["ing2"].value
+ingredient3 = arguments["ing3"].value
+ingredient4 = arguments["ing4"].value
+#print(arguments["horse"].value)
 
 #this is a test API KEY (not required)
 #apiKey = '<YOUR_TEST_API_KEY>'
@@ -15,7 +19,7 @@ print(arguments["horse"].value)
 
 #facebook = facebook.GraphAPI(apiKey)
 
-message = makePizza.makePizza()[0]
+message = makePizza.makePizza(ingredient1, ingredient2, ingredient3, ingredient4)[0]
 print(message)
 
 #response = facebook.put_photo(image=open(os.path.join(loc, 'pizza2.png'), 'rb'), message=message)
