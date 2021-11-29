@@ -68,7 +68,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     custIngs = [ing1, ing2, ing3, ing4]
     for ing in custIngs:
         valid = validateIngredient(ing)
-        logging.warning(valid)
+        logging.warning(ing)
         if valid == 1:
             logging.warning("This should also run 4 times")
             ingredientsAmmout += 1
