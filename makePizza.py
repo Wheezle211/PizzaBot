@@ -109,8 +109,8 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     else:
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
     logging.warning(ingredientsAmmout)
-    if customIngredients == 0:
-        for i in range(ingredientsAmmout):
+    for i in range(ingredientsAmmout):
+        if customIngredients == 0:
             if i == 0 and random.random() > 0.995 and not isDiscord:
                 ingredientId = 'previous'
                 ingredients.append('previous pizza, just a bit smaller')
@@ -136,9 +136,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(False)
                 else:
                     isDouble.append(True)
-                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-    else:
-        for i in range(ingredientsAmmout):   
+        else: 
             #logging.warning(i)
             ingredientId = custIngs[i]
             ingredients.append(ingredientsDict[ingredientId])
@@ -158,8 +156,8 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                 isDouble.append(False)
             else:
                 isDouble.append(True)
-            pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-        #pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+
+        pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
 
     extraS = ""
     if random.random() > 0.85:
