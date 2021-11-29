@@ -66,7 +66,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     ingredientsAmmout = 0
     customIngredients = 0
     custIngs = [ing1, ing2, ing3, ing4]
-    for i, ing in enumerate(custIngs):
+    for i, ing in custIngs:
         valid = validateIngredient(ing)
         if valid == 1:
             ingredientsAmmout += 1
