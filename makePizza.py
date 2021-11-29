@@ -66,13 +66,16 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     ingredientsAmmout = 0
     customIngredients = 0
     custIngs = [ing1, ing2, ing3, ing4]
+    toRemove = []
     for ing in custIngs:
         valid = validateIngredient(ing)
         if valid == 1:
             ingredientsAmmout += 1
             logging.warning("this should run 3 times")
         else:
-            custIngs.remove(ing)
+            toRemove.append(ing)
+    for i in toRemove:
+        custIngs.remove(i)
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
