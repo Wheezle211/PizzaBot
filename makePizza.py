@@ -135,7 +135,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(False)
                 else:
                     isDouble.append(True)
-                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+            pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
         else:
             for i in range(ingredientsAmmout + 1):   
                 logging.warning(i)
@@ -157,7 +157,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(False)
                 else:
                     isDouble.append(True)
-                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+            pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
         #pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
 
     extraS = ""
