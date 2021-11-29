@@ -108,7 +108,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         hasDifferentPie = True
     else:
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
-    logging.warning("amount: " + ingredientsAmmout)
+    logging.warning(ingredientsAmmout)
     if customIngredients == 0:
         for i in range(ingredientsAmmout):
             if i == 0 and random.random() > 0.995 and not isDiscord:
