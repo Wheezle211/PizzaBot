@@ -234,6 +234,8 @@ def fitRGBLights(pizzaImage, loc):
 
 def validateIngredient(ingredient):
     ingredientsDict = {}
+    folder = './ingredients'
+    sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
     for name in sub_folders:
         try:
             with open(os.path.join(folder + '/' + name, name + '.txt')) as f:
