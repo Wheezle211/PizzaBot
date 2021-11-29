@@ -6,13 +6,13 @@ os.environ["PYTHONIOENCODING"] = "utf-8"
 
 loc = os.path.dirname(os.path.abspath(__file__))
 arguments = cgi.FieldStorage()
-if arguments.has_key("ing1"):
+if "ing1" in arguments:
     ingredient1 = arguments["ing1"].value
-if arguments.has_key("ing2"):
+if "ing2" in arguments:
     ingredient1 = arguments["ing2"].value
-if arguments.has_key("ing3"):
+if "ing3" in arguments:
     ingredient1 = arguments["ing3"].value
-if arguments.has_key("ing4"):
+if "ing4" in arguments:
     ingredient1 = arguments["ing4"].value
 #print(arguments["horse"].value)
 
