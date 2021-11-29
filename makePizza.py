@@ -245,8 +245,6 @@ def validateIngredient(ingredient):
         ingredientsDict[name] = ingredientContent
         if name == ingredient:
             return 1
-        else:
-            continue
     else:
         return 0
 
