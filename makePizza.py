@@ -67,6 +67,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     customIngredients = 0
     custIngs = [ing1, ing2, ing3, ing4]
     for ing in custIngs:
+        logging.warning("this should run 4 times")
         if validateIngredient(ing) == 1:
             ingredientsAmmout += 1
     folder = './ingredients'
@@ -243,7 +244,6 @@ def validateIngredient(ingredient):
             ingredientContent = name
         ingredientsDict[name] = ingredientContent
         if name == ingredient:
-            logging.warning("hello!")
             return 1
         else:
             continue
