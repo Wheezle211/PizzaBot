@@ -58,11 +58,18 @@ def formatString(ingredients, halves, isDouble):
         x += 1
     return s
 
-def makePizza():
+def makePizza(ing1="", ing2="", ing3="", ing4=""):
 
-    return buildPizza()
+    return buildPizza(ing1, ing2, ing3, ing4)
 
-def buildPizza():
+def buildPizza(ing1="", ing2="", ing3="", ing4=""):
+    ingredientsAmmout = 0
+    customIngredients = 0
+    custIngs = [ing1, ing2, ing3, ing4]
+    for ing in custIngs:
+        if validateIngredient(ing) == 1:
+            ingredientsAmmout += 1
+
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
@@ -76,7 +83,10 @@ def buildPizza():
             ingredientContent = name
         ingredientsDict[name] = ingredientContent
 
-    ingredientsAmmout = random.randint(1, 5)
+    if ingredientsAmmout == 0:
+        ingredientsAmmout = random.randint(1, 5)
+    else:
+        customIngredients = 1
     ingredientsIds = list(ingredientsDict)
     for name in pie_folders:
         try:
@@ -98,15 +108,34 @@ def buildPizza():
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
 
     for i in range(ingredientsAmmout):
+        if customIngredients == 0:
+            if i == 0 and random.random() > 0.995 and not isDiscord:
+                ingredientId = 'previous'
+                ingredients.append('previous pizza, just a bit smaller')
+                halves.append("whole")
+                isDouble.append(False)
+            else:
+                shuffle(ingredientsIds)
+                ingredientId = random.choice(ingredientsIds)
+                ingredients.append(ingredientsDict[ingredientId])
+                ingredientsDict.pop(ingredientId)
+                ingredientsIds.pop(ingredientsIds.index(ingredientId))
 
-        if i == 0 and random.random() > 0.995 and not isDiscord:
-            ingredientId = 'previous'
-            ingredients.append('previous pizza, just a bit smaller')
-            halves.append("whole")
-            isDouble.append(False)
+                halvesValue = random.random()
+                doubleValue = random.random()
+                if halvesValue < 0.6:
+                    halves.append("whole")
+                elif halvesValue < 0.8:
+                    halves.append("right")
+                else:
+                    halves.append("left")
+
+                if doubleValue < 0.85:
+                    isDouble.append(False)
+                else:
+                    isDouble.append(True)
         else:
-            shuffle(ingredientsIds)
-            ingredientId = random.choice(ingredientsIds)
+            ingredientId = custIngs[i]
             ingredients.append(ingredientsDict[ingredientId])
             ingredientsDict.pop(ingredientId)
             ingredientsIds.pop(ingredientsIds.index(ingredientId))
@@ -202,3 +231,22 @@ def fitRGBLights(pizzaImage, loc):
     rgbLights = Image.open(os.path.join(loc, 'rgb.png'))
     pizzaImage = Image.alpha_composite(rgbLights, pizzaImage)
     return pizzaImage
+
+def validateIngredient(ingredient):
+    ingredientsDict = {}
+    for name in sub_folders:
+        try:
+            with open(os.path.join(folder + '/' + name, name + '.txt')) as f:
+                ingredientContent = f.read()
+        except:
+            ingredientContent = name
+        ingredientsDict[name] = ingredientContent
+        if name == ingredient:
+            return 1
+        else:
+            continue
+    else:
+        return 0
+
+
+    
