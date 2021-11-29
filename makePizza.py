@@ -108,8 +108,8 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         hasDifferentPie = True
     else:
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
-    for i in range(ingredientsAmmout):
-        if customIngredients == 0:
+    if customIngredients == 0:
+        for i in range(ingredientsAmmout):
             if i == 0 and random.random() > 0.995 and not isDiscord:
                 ingredientId = 'previous'
                 ingredients.append('previous pizza, just a bit smaller')
@@ -135,28 +135,30 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(False)
                 else:
                     isDouble.append(True)
+                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
         else:
-            logging.warning(i)
-            ingredientId = custIngs[i]
-            ingredients.append(ingredientsDict[ingredientId])
-            ingredientsDict.pop(ingredientId)
-            ingredientsIds.pop(ingredientsIds.index(ingredientId))
+            for i in range(ingredientsAmmout + 1):   
+                logging.warning(i)
+                ingredientId = custIngs[i]
+                ingredients.append(ingredientsDict[ingredientId])
+                ingredientsDict.pop(ingredientId)
+                ingredientsIds.pop(ingredientsIds.index(ingredientId))
 
-            halvesValue = random.random()
-            doubleValue = random.random()
-            if halvesValue < 0.6:
-                halves.append("whole")
-            elif halvesValue < 0.8:
-                halves.append("right")
-            else:
-                halves.append("left")
+                halvesValue = random.random()
+                doubleValue = random.random()
+                if halvesValue < 0.6:
+                    halves.append("whole")
+                elif halvesValue < 0.8:
+                    halves.append("right")
+                else:
+                    halves.append("left")
 
-            if doubleValue < 0.85:
-                isDouble.append(False)
-            else:
-                isDouble.append(True)
-
-        pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+                if doubleValue < 0.85:
+                    isDouble.append(False)
+                else:
+                    isDouble.append(True)
+                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+        #pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
 
     extraS = ""
     if random.random() > 0.85:
