@@ -1,4 +1,4 @@
-import random, datetime, os, io
+import random, datetime, os, io, logging
 from random import shuffle
 import time
 from PIL import Image, ImageEnhance, ImageOps
@@ -69,7 +69,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     for ing in custIngs:
         if validateIngredient(ing) == 1:
             ingredientsAmmout += 1
-
+    logging.warning(ingredientsAmmout)
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
