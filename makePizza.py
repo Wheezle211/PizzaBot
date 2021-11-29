@@ -108,7 +108,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         hasDifferentPie = True
     else:
         pizzaImage = Image.open(os.path.join(loc, 'pizza.png'))
-
+    logging.warning(ingredientsAmmout)
     for i in range(ingredientsAmmout):
         if customIngredients == 0:
             if i == 0 and random.random() > 0.995 and not isDiscord:
@@ -138,7 +138,6 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(True)
         else:
             ingredientId = custIngs[i]
-            logging.warning(ingredientId)
             ingredients.append(ingredientsDict[ingredientId])
             ingredientsDict.pop(ingredientId)
             ingredientsIds.pop(ingredientsIds.index(ingredientId))
