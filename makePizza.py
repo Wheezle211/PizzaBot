@@ -72,7 +72,6 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
             ingredientsAmmout += 1
         else:
             custIngs.pop(i)
-    logging.warning(custIngs)
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
@@ -139,6 +138,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(True)
         else:
             ingredientId = custIngs[i]
+            logging.warning(ingredientId)
             ingredients.append(ingredientsDict[ingredientId])
             ingredientsDict.pop(ingredientId)
             ingredientsIds.pop(ingredientsIds.index(ingredientId))
