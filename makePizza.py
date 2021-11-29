@@ -135,28 +135,28 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(False)
                 else:
                     isDouble.append(True)
-            pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-        else:
-            for i in range(ingredientsAmmout + 1):   
-                logging.warning(i)
-                ingredientId = custIngs[i]
-                ingredients.append(ingredientsDict[ingredientId])
-                ingredientsDict.pop(ingredientId)
-                ingredientsIds.pop(ingredientsIds.index(ingredientId))
+                pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
+    else:
+        for i in range(ingredientsAmmout + 1):   
+            logging.warning(i)
+            ingredientId = custIngs[i]
+            ingredients.append(ingredientsDict[ingredientId])
+            ingredientsDict.pop(ingredientId)
+            ingredientsIds.pop(ingredientsIds.index(ingredientId))
 
-                halvesValue = random.random()
-                doubleValue = random.random()
-                if halvesValue < 0.6:
-                    halves.append("whole")
-                elif halvesValue < 0.8:
-                    halves.append("right")
-                else:
-                    halves.append("left")
+            halvesValue = random.random()
+            doubleValue = random.random()
+            if halvesValue < 0.6:
+                halves.append("whole")
+            elif halvesValue < 0.8:
+                halves.append("right")
+            else:
+                halves.append("left")
 
-                if doubleValue < 0.85:
-                    isDouble.append(False)
-                else:
-                    isDouble.append(True)
+            if doubleValue < 0.85:
+                isDouble.append(False)
+            else:
+                isDouble.append(True)
             pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
         #pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
 
