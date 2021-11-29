@@ -137,7 +137,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                     isDouble.append(True)
                 pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
     else:
-        for i in range(ingredientsAmmout + 1):   
+        for i in range(ingredientsAmmout):   
             logging.warning(i)
             ingredientId = custIngs[i]
             ingredients.append(ingredientsDict[ingredientId])
