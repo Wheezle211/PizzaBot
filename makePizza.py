@@ -68,10 +68,10 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     custIngs = [ing1, ing2, ing3, ing4]
     for ing in custIngs:
         valid = validateIngredient(ing)
-        logging.warning(ing)
         if valid == 1:
-            logging.warning("This should also run 4 times")
             ingredientsAmmout += 1
+        else:
+            custIngs.pop(ing)
     folder = './ingredients'
     piefolder = './pies'
     sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
