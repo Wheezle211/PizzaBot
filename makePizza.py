@@ -141,7 +141,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         else: 
             ingredientId = custIngs[i]
             ingredients.append(ingredientsDict[ingredientId])
-
+            logging.warning(ingredientId)
             halvesValue = random.random()
             doubleValue = random.random()
             if halvesValue < 0.6:
