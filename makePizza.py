@@ -143,8 +143,8 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
             ingredientId = custIngs[i]
             logging.warning(ingredientId)
             ingredients.append(ingredientsDict[ingredientId])
-            ingredientsDict.pop(i)
-            ingredientsIds.pop(ingredientsIds.index(ingredientId))
+            #ingredientsDict.pop(ingriedientId)
+            #ingredientsIds.pop(ingredientsIds.index(ingredientId))
 
             halvesValue = random.random()
             doubleValue = random.random()
