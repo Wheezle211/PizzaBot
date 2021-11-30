@@ -59,7 +59,7 @@ def formatString(ingredients, halves, isDouble):
     return s
 
 def makePizza(ing1="", ing2="", ing3="", ing4=""):
-    logging.warning(ing1)
+    #logging.warning(ing1)
     return buildPizza(ing1, ing2, ing3, ing4)
 
 def buildPizza(ing1="", ing2="", ing3="", ing4=""):
