@@ -71,7 +71,6 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         valid = validateIngredient(ing)
         if valid == 1:
             ingredientsAmmout += 1
-            logging.warning("this should run 3 times")
         else:
             toRemove.append(ing)
     for i in toRemove:
@@ -143,6 +142,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
         else: 
             #logging.warning(i)
             ingredientId = custIngs[i]
+            logging.warning(ingredientId)
             ingredients.append(ingredientsDict[ingredientId])
             ingredientsDict.pop(ingredientId)
             ingredientsIds.pop(ingredientsIds.index(ingredientId))
