@@ -59,14 +59,14 @@ def formatString(ingredients, halves, isDouble):
     return s
 
 def makePizza(ing1="", ing2="", ing3="", ing4=""):
-
+    logging.warning(ing1)
     return buildPizza(ing1, ing2, ing3, ing4)
 
 def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     ingredientsAmmout = 0
     customIngredients = 0
     custIngs = [ing1, ing2, ing3, ing4]
-    logging.warning(custIngs)
+    #logging.warning(custIngs)
     toRemove = []
     for ing in custIngs:
         valid = validateIngredient(ing)
@@ -158,11 +158,6 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                 isDouble.append(True)
 
         pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-    ing1 = ""
-    ing2 = ""
-    ing3 = ""
-    ing4 = ""
-    customIngredients = 0
 
     extraS = ""
     if random.random() > 0.85:
