@@ -139,12 +139,8 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                 else:
                     isDouble.append(True)
         else: 
-            #logging.warning(i)
             ingredientId = custIngs[i]
-            logging.warning(ingredientId)
             ingredients.append(ingredientsDict[ingredientId])
-            #ingredientsDict.pop(ingriedientId)
-            #ingredientsIds.pop(ingredientsIds.index(ingredientId))
 
             halvesValue = random.random()
             doubleValue = random.random()
