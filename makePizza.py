@@ -158,10 +158,12 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
                 isDouble.append(True)
 
         pizzaImage = addIngredient(loc, pizzaImage, ingredientId, halves[i], isDouble[i])
-        ing1 = ""
-        ing2 = ""
-        ing3 = ""
-        ing4 = ""
+    ing1 = ""
+    ing2 = ""
+    ing3 = ""
+    ing4 = ""
+    ingredientsDict = {}
+    ingredients = []
 
     extraS = ""
     if random.random() > 0.85:
