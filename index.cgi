@@ -11,13 +11,13 @@ ingredient3 = ""
 ingredient4 = ""
 arguments = cgi.FieldStorage()
 if "ing1" in arguments:
-    ingredient1 = arguments["ing1"].value
+    ingredient1 = lower(arguments["ing1"].value)
 if "ing2" in arguments:
-    ingredient2 = arguments["ing2"].value
+    ingredient2 = lower(arguments["ing2"].value)
 if "ing3" in arguments:
-    ingredient3 = arguments["ing3"].value
+    ingredient3 = lower(arguments["ing3"].value)
 if "ing4" in arguments:
-    ingredient4 = arguments["ing4"].value
+    ingredient4 = lower(arguments["ing4"].value)
 #print(arguments["horse"].value)
 
 #this is a test API KEY (not required)
