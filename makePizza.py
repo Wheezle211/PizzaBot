@@ -162,6 +162,7 @@ def buildPizza(ing1="", ing2="", ing3="", ing4=""):
     ing2 = ""
     ing3 = ""
     ing4 = ""
+    customIngredients = 0
 
     extraS = ""
     if random.random() > 0.85:
