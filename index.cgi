@@ -28,7 +28,6 @@ if "ing4" in arguments:
 #facebook = facebook.GraphAPI(apiKey)
 
 message = makePizza.makePizza(ingredient1, ingredient2, ingredient3, ingredient4)[0]
-print("debug: " + ingredient1 + "" + ingredient2 + "" + ingredient3 + "" + ingredient4)
 print(message)
 
 #response = facebook.put_photo(image=open(os.path.join(loc, 'pizza2.png'), 'rb'), message=message)
