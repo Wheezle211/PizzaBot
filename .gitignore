@@ -119,3 +119,4 @@ dmypy.json
 
 #pull script
 pull.php
+ingredients/.DS_Store
